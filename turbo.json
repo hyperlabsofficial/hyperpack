@@ -1,0 +1,17 @@
+{
+    "pipeline": {
+      "build": {
+        "dependsOn": ["^build"],
+        "outputs": ["build/**"]
+      },
+      "deploy": {
+        "dependsOn": ["build"],
+        "outputs": []
+      }
+    },
+    "globalDependencies": ["target/"],
+    "globalEnv": ["OUT_DIR"],
+    "tasks": {
+      "build": "tsc && cargo build --release",
+    }
+  }
